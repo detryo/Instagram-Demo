@@ -19,7 +19,7 @@ public class AuthManager {
         
     }
     
-    public func loginUser(userName: String?, email: String?, password: String?) {
+    public func loginUser(userName: String?, email: String?, password: String, complition: (Bool -> Void)) {
         
         
     }
