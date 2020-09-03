@@ -16,3 +16,8 @@ struct AppImage {
     static let instagramHeader = "instagramHeader"
     static let logo = "logo"
 }
+
+struct Identifier {
+    static let settingsCell = "SettingsCell"
+    static let notificationCell = "NotificationCell"
+}

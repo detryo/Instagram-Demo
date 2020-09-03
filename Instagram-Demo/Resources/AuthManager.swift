@@ -13,7 +13,6 @@ public class AuthManager {
     static let shared = AuthManager()
     
     // MARK: - Public
-    
     public func registerNewUser(userName: String, email: String, password: String, complition: @escaping (Bool) -> Void) {
         
         // Check if user name is available
@@ -34,7 +33,6 @@ public class AuthManager {
                         if inserted {
                             complition(true)
                             return
-                            
                         } else {
                             // Failed to insert database
                             complition(false)
@@ -61,10 +59,25 @@ public class AuthManager {
                 }
                 complition(true)
             }
-            
         } else if let userName = userName {
             // userName log in
             print(userName)
+        }
+    }
+    // Attempt to Log Out Firebase User
+    public func logOut(complition: (Bool) -> Void) {
+        
+        do {
+            
+            try Auth.auth().signOut()
+            complition(true)
+            return
+            
+        } catch {
+            
+            debugPrint(error.localizedDescription)
+            complition(false)
+            return
         }
     }
 }
