@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import FirebaseAuth
 
 class LoginVC: UIViewController {
     
@@ -40,6 +41,7 @@ class LoginVC: UIViewController {
         textField.backgroundColor = .secondarySystemBackground
         textField.layer.borderWidth = 1.0
         textField.layer.borderColor = UIColor.secondaryLabel.cgColor
+        textField.isSecureTextEntry = true
         return textField
     }()
     
@@ -181,16 +183,43 @@ class LoginVC: UIViewController {
         userNameEmailField.resignFirstResponder()
         
         guard let userNameEmail = userNameEmailField.text, !userNameEmail.isEmpty,
-            let password = passwordField.text, !password.isEmpty, password.count >= 8 else { return }
+            let password = passwordField.text, !password.isEmpty, password.count >= 8 else {
+                simpleAlert(title: "", message: "Password Shoud be 8 Characters")
+                return
+                
+        }
         
         // login functionallity
         
+        var userName: String?
+        var email: String?
+        
+        if userNameEmail.contains("@"), userNameEmail.contains(".") {
+            // email
+            email = userNameEmail
+        } else {
+            // userName
+            userName = userNameEmail
+        }
+        
+        AuthManager.shared.loginUser(userName: userName, email: email, password: password) { success in
+            
+            DispatchQueue.main.async {
+                
+            if success {
+                    // user log in
+                self.dismiss(animated: true, completion: nil)
+                } else {
+                    // error occurred
+                self.simpleAlert(title: "error", message: "error")
+                }
+            }
+        }
     }
     
     @objc private func didTapTermsButton() {
         
         guard let url = URL(string: "https://help.instagram.com/478745558852511/?helpref=hc_fnav") else { return }
-        
         let viewController = SFSafariViewController(url: url)
         present(viewController, animated: true, completion: nil)
     }
@@ -198,7 +227,6 @@ class LoginVC: UIViewController {
     @objc private func didTapPrivacyButton() {
         
         guard let url = URL(string: "https://help.instagram.com/155833707900388") else { return }
-        
         let viewController = SFSafariViewController(url: url)
         present(viewController, animated: true, completion: nil)
     }
@@ -206,7 +234,8 @@ class LoginVC: UIViewController {
     @objc private func didTapCreateAccountButton() {
         
         let viewController = RegistrationVC()
-        present(viewController, animated: true, completion: nil)
+        viewController.title = "Create Account"
+        present(UINavigationController(rootViewController: viewController), animated: true, completion: nil)
     }
 }
 
@@ -215,14 +244,10 @@ extension LoginVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         if textField == userNameEmailField {
-            
             passwordField.becomeFirstResponder()
-            
         } else if textField == passwordField {
-            
             didTapLoginButton()
         }
-        
         return true
     }
 }
