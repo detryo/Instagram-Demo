@@ -20,4 +20,6 @@ struct AppImage {
 struct Identifier {
     static let settingsCell = "SettingsCell"
     static let notificationCell = "NotificationCell"
+    static let IGFeedPostCell = "IGFeedPostCell"
+    static let editProfileCell = "EditProfileCell"
 }
