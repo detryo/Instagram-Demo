@@ -20,7 +20,7 @@ final class EditProfileVC: UIViewController {
     // Setup UI
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Identifier.editProfileCell)
+        tableView.register(FormCell.self, forCellReuseIdentifier: Identifier.formCell)
         return tableView
     }()
     
@@ -165,20 +165,27 @@ extension EditProfileVC: UITableViewDataSource {
         
         let model = models[indexPath.section][indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.editProfileCell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.formCell, for: indexPath) as! FormCell
         
-        cell.textLabel?.text = model.label
+        cell.configureCell(with: model)
+        cell.delegate = self
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        guard section == 1 else {
-            
-            return nil
-        }
+        guard section == 1 else { return nil }
         
         return "Private Information"
+    }
+}
+
+extension EditProfileVC: FormCellDelegate {
+    
+    func formTableViewCell(_ cell: FormCell, didUpdatetextField updateModel: EditProfileModel) {
+        
+        // Update The Model
+        
     }
 }

@@ -21,5 +21,8 @@ struct Identifier {
     static let settingsCell = "SettingsCell"
     static let notificationCell = "NotificationCell"
     static let IGFeedPostCell = "IGFeedPostCell"
-    static let editProfileCell = "EditProfileCell"
+    static let formCell = "FormCell"
+    static let photoCell = "PhotoCell"
+    static let profileInfoHeaderReusableView = "ProfileInfoHeaderReusableView"
+    static let profileTabReusableView = "ProfileTabReusableView"
 }
