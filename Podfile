@@ -6,6 +6,8 @@ target 'Instagram-Demo' do
   use_frameworks!
 
   # Pods for Instagram-Demo
+  
+   pod 'SDWebImage'	
    pod "Appirater"
    pod 'Firebase/Core'
    pod 'Firebase/Auth'

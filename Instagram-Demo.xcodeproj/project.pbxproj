@@ -15,6 +15,7 @@
 		3647ABEF25013D0700F78A5D /* IGFeedPostHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647ABEE25013D0700F78A5D /* IGFeedPostHeaderCell.swift */; };
 		3647ABF125013D7A00F78A5D /* IGFeedPostActionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647ABF025013D7A00F78A5D /* IGFeedPostActionsCell.swift */; };
 		3647ABF325013DC900F78A5D /* IGFeedPostGeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647ABF225013DC900F78A5D /* IGFeedPostGeneralCell.swift */; };
+		364E7E822510E78C00E6DDED /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364E7E812510E78C00E6DDED /* Models.swift */; };
 		36543B52250F845A00923805 /* FormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36543B51250F845A00923805 /* FormCell.swift */; };
 		36543B55250FC7C100923805 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36543B54250FC7C100923805 /* PhotoCell.swift */; };
 		36543B57250FC99800923805 /* ProfileInfoHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36543B56250FC99800923805 /* ProfileInfoHeaderReusableView.swift */; };
@@ -54,6 +55,7 @@
 		3647ABEE25013D0700F78A5D /* IGFeedPostHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostHeaderCell.swift; sourceTree = "<group>"; };
 		3647ABF025013D7A00F78A5D /* IGFeedPostActionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostActionsCell.swift; sourceTree = "<group>"; };
 		3647ABF225013DC900F78A5D /* IGFeedPostGeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostGeneralCell.swift; sourceTree = "<group>"; };
+		364E7E812510E78C00E6DDED /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		36543B51250F845A00923805 /* FormCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCell.swift; sourceTree = "<group>"; };
 		36543B54250FC7C100923805 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		36543B56250FC99800923805 /* ProfileInfoHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoHeaderReusableView.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 		36CD291824F7B0580052F8BB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				364E7E812510E78C00E6DDED /* Models.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -361,6 +365,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -418,6 +423,7 @@
 				36CD290324F7AF470052F8BB /* AppDelegate.swift in Sources */,
 				36CD291E24F7B1550052F8BB /* CameraVC.swift in Sources */,
 				36543B59250FCA4A00923805 /* ProfileTabReusableView.swift in Sources */,
+				364E7E822510E78C00E6DDED /* Models.swift in Sources */,
 				360AA58824F949BF00F22F27 /* AuthManager.swift in Sources */,
 				36CD291C24F7B1300052F8BB /* ExploreVC.swift in Sources */,
 				3647ABF325013DC900F78A5D /* IGFeedPostGeneralCell.swift in Sources */,
