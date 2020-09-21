@@ -9,7 +9,9 @@
 import UIKit
 
 struct Constants {
+    
     static let cornerRadius: CGFloat = 8.0
+    static let padding: CGFloat = 8
 }
 
 struct AppImage {
@@ -25,4 +27,5 @@ struct Identifier {
     static let photoCell = "PhotoCell"
     static let profileInfoHeaderReusableView = "ProfileInfoHeaderReusableView"
     static let profileTabReusableView = "ProfileTabReusableView"
+    static let userFollowCell = "UserFollowCell"
 }
