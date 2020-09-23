@@ -88,6 +88,15 @@ final class NotificationVC: UIViewController {
         
         for x in 0...100 {
             
+            let user = User(userName: "Chris",
+                            bio: "",
+                            name: (first: "", last: ""),
+                            birthDate: Date(),
+                            joinDate: Date(),
+                            gender: .male,
+                            count: UserCount(followers: 1, following: 1, post: 1),
+                            profilePhoto: URL(string: "https://www.google.com")!)
+            
             let post = UserPost(identifier: "",
                                 postType: .photo,
                                 thumbnailImage: URL(string: "https://www.google.com")!,
@@ -96,18 +105,12 @@ final class NotificationVC: UIViewController {
                                 likeCount: [],
                                 comments: [],
                                 createdDate: Date(),
-                                taggedUsers: [])
+                                taggedUsers: [],
+                                owner: user)
             
             let model = UserNotification(type: x % 2 == 0 ? .like(post: post) : .follow(state: .not_following),
                                          text: "Hello World",
-                                         user: User(userName: "Chris",
-                                                    bio: "",
-                                                    name: (first: "", last: ""),
-                                                    birthDate: Date(),
-                                                    joinDate: Date(),
-                                                    gender: .male,
-                                                    count: UserCount(followers: 1, following: 1, post: 1),
-                                                    profilePhoto: URL(string: "https://www.google.com")!))
+                                         user: user)
             
             models.append(model)
         }
@@ -157,9 +160,20 @@ extension NotificationVC: NotificationLikeEventCellDelegate {
     
     func didTapRelatedPostButton(model: UserNotification) {
         
-        print("Tapped Post")
-        
-        // Open the post
+        switch model.type {
+            
+        case .like(let post):
+            
+            // Open the post
+            let viewController = PostVC(model: post)
+            viewController.title = post.postType.rawValue
+            viewController.navigationItem.largeTitleDisplayMode = .never
+            navigationController?.pushViewController(viewController, animated: true)
+            
+        case .follow(_):
+            
+            fatalError("Dev error should never get called")
+        }
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  IGFeedPostCell.swift
+//  IGFeedPostGeneralCell.swift
 //  Instagram-Demo
 //
 //  Created by Cristian Sedano Arenas on 03/09/2020.
@@ -8,11 +8,13 @@
 
 import UIKit
 
-final class IGFeedPostCell: UITableViewCell {
+// Comments
+class IGFeedPostGeneralCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        contentView.backgroundColor = .systemOrange
     }
     
     required init?(coder: NSCoder) {
@@ -22,5 +24,11 @@ final class IGFeedPostCell: UITableViewCell {
     public func configure() {
         
         // Configure the cell
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        
     }
 }
