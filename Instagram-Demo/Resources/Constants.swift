@@ -28,4 +28,6 @@ struct Identifier {
     static let profileInfoHeaderReusableView = "ProfileInfoHeaderReusableView"
     static let profileTabReusableView = "ProfileTabReusableView"
     static let userFollowCell = "UserFollowCell"
+    static let notificationLikeEventCell = "NotificationLikeEventCell"
+    static let notificationFollowEventCell = "NotificationFollowEventCell"
 }

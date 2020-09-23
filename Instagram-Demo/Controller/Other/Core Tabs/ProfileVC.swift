@@ -164,7 +164,16 @@ extension ProfileVC: ProfileInfoHeaderReusableViewDelegate {
     
     func profileHeaderDidTapFollowersButton(_ header: ProfileInfoHeaderReusableView) {
         
-        let viewController = ListVC(data: ["Chris", "Chris", "Chris", "Chris"])
+        var mockData = [UserRelationship]()
+        
+        for x in 0..<10 {
+            
+            mockData.append(UserRelationship(userName: "@Chris",
+                                             nname: "Chris",
+                                             type: x % 2 == 0 ? .following : .not_following))
+        }
+        
+        let viewController = ListVC(data: mockData)
         viewController.title = "Followers"
         viewController.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(viewController, animated: true)
@@ -172,7 +181,16 @@ extension ProfileVC: ProfileInfoHeaderReusableViewDelegate {
     
     func profileHeaderDidTapFollowingButton(_ header: ProfileInfoHeaderReusableView) {
         
-        let viewController = ListVC(data: ["Chris", "Chris", "Chris", "Chris"])
+        var mockData = [UserRelationship]()
+        
+        for x in 0..<10 {
+            
+            mockData.append(UserRelationship(userName: "@Chris",
+                                             nname: "Chris",
+                                             type: x % 2 == 0 ? .following : .not_following))
+        }
+        
+        let viewController = ListVC(data: mockData)
         viewController.title = "Following"
         viewController.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(viewController, animated: true)
